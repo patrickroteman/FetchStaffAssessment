@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		25B8672D2CE959850036D51D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 25B8672C2CE959850036D51D /* README.md */; };
+		25B867782CE9627F0036D51D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 25B867772CE9627F0036D51D /* Alamofire */; };
+		25F4B9062CEA98DD0035A449 /* Mocker in Frameworks */ = {isa = PBXBuildFile; productRef = 25F4B9052CEA98DD0035A449 /* Mocker */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		256F9E222CE8200F00AD6329 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +33,7 @@
 		256F9E112CE8200D00AD6329 /* FetchStaffAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FetchStaffAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		256F9E212CE8200F00AD6329 /* FetchStaffAssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchStaffAssessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		256F9E2B2CE8200F00AD6329 /* FetchStaffAssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchStaffAssessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		25B8672C2CE959850036D51D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25B867782CE9627F0036D51D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25F4B9062CEA98DD0035A449 /* Mocker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +84,7 @@
 		256F9E082CE8200D00AD6329 = {
 			isa = PBXGroup;
 			children = (
+				25B8672C2CE959850036D51D /* README.md */,
 				256F9E132CE8200D00AD6329 /* FetchStaffAssessment */,
 				256F9E242CE8200F00AD6329 /* FetchStaffAssessmentTests */,
 				256F9E2E2CE8200F00AD6329 /* FetchStaffAssessmentUITests */,
@@ -112,6 +122,7 @@
 			);
 			name = FetchStaffAssessment;
 			packageProductDependencies = (
+				25B867772CE9627F0036D51D /* Alamofire */,
 			);
 			productName = FetchStaffAssessment;
 			productReference = 256F9E112CE8200D00AD6329 /* FetchStaffAssessment.app */;
@@ -135,6 +146,7 @@
 			);
 			name = FetchStaffAssessmentTests;
 			packageProductDependencies = (
+				25F4B9052CEA98DD0035A449 /* Mocker */,
 			);
 			productName = FetchStaffAssessmentTests;
 			productReference = 256F9E212CE8200F00AD6329 /* FetchStaffAssessmentTests.xctest */;
@@ -195,6 +207,10 @@
 			);
 			mainGroup = 256F9E082CE8200D00AD6329;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				25B867762CE9627F0036D51D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				25F4B9042CEA98DD0035A449 /* XCRemoteSwiftPackageReference "Mocker" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 256F9E122CE8200D00AD6329 /* Products */;
 			projectDirPath = "";
@@ -212,6 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25B8672D2CE959850036D51D /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +571,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		25B867762CE9627F0036D51D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.10.1;
+			};
+		};
+		25F4B9042CEA98DD0035A449 /* XCRemoteSwiftPackageReference "Mocker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WeTransfer/Mocker.git";
+			requirement = {
+				kind = exactVersion;
+				version = 3.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		25B867772CE9627F0036D51D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25B867762CE9627F0036D51D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		25F4B9052CEA98DD0035A449 /* Mocker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25F4B9042CEA98DD0035A449 /* XCRemoteSwiftPackageReference "Mocker" */;
+			productName = Mocker;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 256F9E092CE8200D00AD6329 /* Project object */;
 }
