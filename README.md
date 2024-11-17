@@ -15,6 +15,7 @@ My submission for Fetch's Staff iOS take home project https://d3jbb8n5wk0qxi.clo
 ### External Code and Dependencies: Did you use any external code, libraries, or dependencies?
 
 1. Alamofire was chosen as it serves as a nice facade over the default NSURLSession APIs when making web requests with Swift Concurrency support built in.
+2. Mocker from WeTransfer was chosen to help mock network requests. It was chosen primarily because it seemed to be one of the popular choices from some online searches. It feels a little clunkier to set up than other more general mocking tools I've used, and it prevents tests that do mocking from running in parralel, so it isn't actually a great choice but I kept it rather than finding a replacement.
 
 ### Additional Information: Is there anything else we should know? Feel free to share any insights or constraints you encountered.
 
