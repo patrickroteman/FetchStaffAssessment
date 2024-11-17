@@ -8,6 +8,13 @@
 import Foundation
 import Alamofire
 
+/**
+ Protocol for the RecipeManager, which in a sizable app would generally
+ be how we reference it at all times, with dependency injection to be able
+ to swap implementations with a test version when running UI or integration
+ tests. None of that exists in this app but that's a good general pattern to
+ follow.
+ */
 protocol RecipeManaging {
 	func loadRecipes() async throws -> [Recipe]
 }
@@ -20,9 +27,22 @@ protocol RecipeManaging {
  */
 struct RecipeManager: RecipeManaging {
 
-	let recipeURL = "https://d3jbb8n5wk0qxi.cloudfront.net/recipes.json"
-	let invalidRecipeURL = "https://d3jbb8n5wk0qxi.cloudfront.net/recipes-malformed.json"
-	let emptyRecipeURL = "https://d3jbb8n5wk0qxi.cloudfront.net/recipes-empty.json"
+	let recipeURL = URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/recipes.json")!
+	let invalidRecipeURL = URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/recipes-malformed.json")!
+	let emptyRecipeURL = URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/recipes-empty.json")!
+
+	let session: Session
+
+	/**
+	 Inject the dependency on the session to be able to avoid network requests in tests.
+	 */
+	init(session: Session? = nil) {
+		if let session {
+			self.session = session
+		} else {
+			self.session = AF
+		}
+	}
 
 	/**
 	 Alamofire automatically ensures that the work of serialization happens on a background
@@ -32,7 +52,7 @@ struct RecipeManager: RecipeManaging {
 	 threads for different purposes.
 	 */
 	func loadRecipes() async throws -> [Recipe] {
-		let result = await AF.request(recipeURL)
+		let result = await session.request(recipeURL)
 			.validate()
 			.serializingDecodable(RecipeList.self)
 			.result

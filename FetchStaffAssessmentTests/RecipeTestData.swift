@@ -56,4 +56,18 @@ struct RecipeTestData {
 { "recipes": [ \(validRecipeJSONAllValues), \(validRecipeJSONMissingSomeURLs) ] }
 """
 	static let recipeList = RecipeList(recipes: [validRecipeAllValues, validRecipeMissingSomeURLs])
+
+	/// This is missing a name and so should not serialize correctly
+	static let invalidRecipe = """
+{
+"cuisine": "American",
+"photo_url_small": "https://d3jbb8n5wk0qxi.cloudfront.net/photos/b6efe075-6982-4579-b8cf-013d2d1a461b/small.jpg",
+"source_url": "https://www.bbcgoodfood.com/recipes/banana-pancakes",
+"uuid": "f8b20884-1e54-4e72-a417-dabbc8d91f12"
+}
+"""
+
+	static let invalidRecipeList = """
+{ "recipes": [ \(invalidRecipe) ] }
+"""
 }

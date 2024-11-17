@@ -23,6 +23,22 @@ struct RecipeTests {
 		try serializeValid(JSON: RecipeTestData.recipeListJSON, expectedItem: RecipeTestData.recipeList)
 	}
 
+	@Test func serializeInvalidRecipe() throws {
+		let jsonData = RecipeTestData.invalidRecipe.data(using: .utf8)
+		try #require(jsonData != nil)
+		#expect(throws: (any Error).self) {
+			try JSONDecoder().decode(Recipe.self, from: jsonData!)
+		}
+	}
+
+	@Test func serializeInvalidRecipeList() throws {
+		let jsonData = RecipeTestData.invalidRecipeList.data(using: .utf8)
+		try #require(jsonData != nil)
+		#expect(throws: (any Error).self) {
+			try JSONDecoder().decode(RecipeList.self, from: jsonData!)
+		}
+	}
+
 	func serializeValid<T: Decodable & Equatable>(JSON: String, expectedItem: T) throws {
 		let jsonData = JSON.data(using: .utf8)
 		try #require(jsonData != nil)

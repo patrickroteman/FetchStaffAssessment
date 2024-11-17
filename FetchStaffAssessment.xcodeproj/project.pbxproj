@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		25B8672D2CE959850036D51D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 25B8672C2CE959850036D51D /* README.md */; };
 		25B867782CE9627F0036D51D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 25B867772CE9627F0036D51D /* Alamofire */; };
+		25F4B9062CEA98DD0035A449 /* Mocker in Frameworks */ = {isa = PBXBuildFile; productRef = 25F4B9052CEA98DD0035A449 /* Mocker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25F4B9062CEA98DD0035A449 /* Mocker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +146,7 @@
 			);
 			name = FetchStaffAssessmentTests;
 			packageProductDependencies = (
+				25F4B9052CEA98DD0035A449 /* Mocker */,
 			);
 			productName = FetchStaffAssessmentTests;
 			productReference = 256F9E212CE8200F00AD6329 /* FetchStaffAssessmentTests.xctest */;
@@ -206,6 +209,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				25B867762CE9627F0036D51D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				25F4B9042CEA98DD0035A449 /* XCRemoteSwiftPackageReference "Mocker" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 256F9E122CE8200D00AD6329 /* Products */;
@@ -577,6 +581,14 @@
 				version = 5.10.1;
 			};
 		};
+		25F4B9042CEA98DD0035A449 /* XCRemoteSwiftPackageReference "Mocker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WeTransfer/Mocker.git";
+			requirement = {
+				kind = exactVersion;
+				version = 3.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -584,6 +596,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 25B867762CE9627F0036D51D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		25F4B9052CEA98DD0035A449 /* Mocker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25F4B9042CEA98DD0035A449 /* XCRemoteSwiftPackageReference "Mocker" */;
+			productName = Mocker;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
