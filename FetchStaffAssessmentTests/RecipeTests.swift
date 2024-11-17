@@ -13,11 +13,11 @@ import Foundation
  Tests around decoding recipes and the recipe lists
  */
 struct RecipeTests {
-	
+
 	@Test(arguments: RecipeTestData.validRecipeParams)
 	func serializeValidRecipe(JSON: String, recipe expectedRecipe: Recipe) throws {
 		try serializeValid(JSON: JSON, expectedItem: expectedRecipe)
-    }
+	}
 
 	@Test func serializeValidRecipeList() throws {
 		try serializeValid(JSON: RecipeTestData.recipeListJSON, expectedItem: RecipeTestData.recipeList)
