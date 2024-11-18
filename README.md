@@ -4,6 +4,11 @@ My submission for Fetch's Staff iOS take home project https://d3jbb8n5wk0qxi.clo
 
 ### Steps to Run the App
 
+1. Open the project in Xcode
+2. Run the FetchStaffAssessment target
+
+// TODO: Is anything needed to set up the packages to download?
+
 ### Focus Areas: What specific areas of the project did you prioritize? Why did you choose to focus on these areas?
 
 ### Time Spent: Approximately how long did you spend working on this project? How did you allocate your time?
