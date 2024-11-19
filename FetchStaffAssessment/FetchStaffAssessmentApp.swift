@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct FetchStaffAssessmentApp: App {
-    var body: some Scene {
+	var body: some Scene {
 		/**
 		 Ideally there would be a container or some sort of dependency injection framework
 		 to initialize the RecipeViewModel, which would allow for different versions between
@@ -18,8 +18,8 @@ struct FetchStaffAssessmentApp: App {
 		 in tests, while also skipping over any actual network requests. However, none of that
 		 is needed for this scope of an app so I have skipped it.
 		 */
-        WindowGroup {
+		WindowGroup {
 			RecipeListView(viewModel: RecipeViewModel(recipeManager: RecipeManager()))
-        }
-    }
+		}
+	}
 }

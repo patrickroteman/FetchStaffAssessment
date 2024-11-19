@@ -28,13 +28,13 @@ struct RecipeViewModelTests {
 	// Tests that the initialized state of the recipe view model is correct.
 	// This is relevant primarily because of the difference between the
 	// "not loaded" state and the "empty results" state.
-    @Test func dataInitialization() throws {
+	@Test func dataInitialization() throws {
 		let mockManager = MockRecipeManager(response: .error)
 		let recipeViewModel = RecipeViewModel(recipeManager: mockManager)
 		#expect(recipeViewModel.failedToLoad == false)
 		#expect(recipeViewModel.hasLoaded == false)
 		#expect(recipeViewModel.recipes == [])
-    }
+	}
 
 	@Test func dataFailure() async throws {
 		let mockManager = MockRecipeManager(response: .error)

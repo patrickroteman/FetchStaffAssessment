@@ -11,7 +11,7 @@ struct RecipeListView: View {
 
 	@ObservedObject var viewModel: RecipeViewModel
 
-    var body: some View {
+	var body: some View {
 		NavigationStack {
 			List($viewModel.recipes) { recipe in
 				RecipeCell(recipe: recipe)
@@ -35,7 +35,7 @@ struct RecipeListView: View {
 				}
 			}
 		}
-    }
+	}
 }
 
 #Preview {

@@ -62,7 +62,6 @@ struct RecipeManager: RecipeManaging {
 		let result = await session.request(recipeURL)
 			.validate()
 			.serializingDecodable(RecipeList.self)
-//			.receive(on: RunLoop.main)
 			.result
 		switch result {
 		case .success(let recipeList):
