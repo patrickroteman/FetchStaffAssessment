@@ -51,7 +51,9 @@ struct RecipeCell: View {
 			WebImage(url: recipe.thumbnailURL) { image in
 				image.resizable()
 			} placeholder: {
-				Image("AppIcon")
+				Image("RecipePlaceholder")
+					.resizable()
+					.scaledToFill()
 			}
 			.indicator(.activity)
 			.scaledToFill()
@@ -85,7 +87,6 @@ struct RecipeCell: View {
 		}
 		.padding()
 		.border(Color.blue, width: 3)
-
 	}
 }
 
