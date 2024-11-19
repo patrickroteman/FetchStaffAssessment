@@ -58,13 +58,12 @@ struct RecipeCell: View {
 			.indicator(.activity)
 			.scaledToFill()
 			.frame(width: imageSize, height: imageSize, alignment: .center)
-			.border(Color.yellow, width: 3)
 			.clipped()
 			Spacer()
 			VStack(alignment: .trailing) {
-				Text(recipe.name).font(.title2)
+				Text(recipe.name).font(.headline)
 				Spacer()
-				Text(recipe.cuisine).font(.headline)
+				Text(recipe.cuisine).font(.subheadline)
 				Spacer()
 				HStack {
 					Button(youtubeButtonTitle) {
@@ -72,6 +71,7 @@ struct RecipeCell: View {
 							openURL(youtubeURL)
 						}
 					}
+					.buttonStyle(BorderlessButtonStyle())
 					.disabled(recipe.youtubeURL == nil)
 					Spacer()
 					Button(recipeSourceButtonTitle) {
@@ -79,14 +79,12 @@ struct RecipeCell: View {
 							openURL(sourceURL)
 						}
 					}
+					.buttonStyle(BorderlessButtonStyle())
 					.disabled(recipe.sourceURL == nil)
 				}
 			}
 			.frame(height: imageSize, alignment: .center)
-			.border(Color.red)
 		}
-		.padding()
-		.border(Color.blue, width: 3)
 	}
 }
 

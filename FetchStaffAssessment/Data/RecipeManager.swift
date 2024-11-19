@@ -50,11 +50,19 @@ struct RecipeManager: RecipeManaging {
 	 main for this simple app). This could be adjusted as needed if we were to implement
 	 something like a background sync engine where responses may need to go different
 	 threads for different purposes.
+
+	 Normally for potentially large data sets, this implementation may need to be more
+	 complex to handle things like pagination of results. In this case we just have a static
+	 list of about 6 recipes so it isn't necessary. It's also good in those sorts of scenarios
+	 to build this with generics so that you can have one network manager that can be
+	 used to fetch all sorts of models or at least cover the basic CRUD operations for
+	 them.
 	 */
 	func loadRecipes() async throws -> [Recipe] {
 		let result = await session.request(recipeURL)
 			.validate()
 			.serializingDecodable(RecipeList.self)
+//			.receive(on: RunLoop.main)
 			.result
 		switch result {
 		case .success(let recipeList):

@@ -7,6 +7,9 @@
 
 import XCTest
 
+/**
+ - Note: This is unmodified from the app set up as UI tests were out of scope
+ */
 final class FetchStaffAssessmentUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
