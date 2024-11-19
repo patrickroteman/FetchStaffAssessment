@@ -6,20 +6,28 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
+/**
+ Represents a recipe in the recipe list. As written, it is tightly bound to recipes and so
+ gets a binding to an actual recipe object. If this were intended to be a reusable
+ component, it might instead declare a protocol that it binds to instead that Recipe
+ could conform to for title, secondaryTitle, thumbnailURL, extra links, etc. This is left
+ simple as the app is simple. While it's good to demonstrate understanding of what
+ good design for a large scale app is, I also am taking the UI code here as an opportunity
+ to show how things don't always have to be complicated if the requirements do not
+ actually call for it.
+ */
 struct RecipeCell: View {
 
-	let primaryText: String
-	let secondaryText: String
-	let thumbnailURL: URL?
+	@Binding var recipe: Recipe
+	@Environment(\.openURL) private var openURL
 
 	let imageSize = CGFloat(120)
 
-	init(recipe: Recipe) {
-		primaryText = recipe.name
-		secondaryText = recipe.cuisine
-		thumbnailURL = recipe.thumbnailURL
-	}
+	// These would be localized in more significant apps.
+	let youtubeButtonTitle = "Youtube"
+	let recipeSourceButtonTitle = "Recipe source"
 
 	/**
 	 I'm sure this isn't the best way to represent this in SwiftUI as I have not much
@@ -40,25 +48,36 @@ struct RecipeCell: View {
 	 */
     var body: some View {
 		HStack(alignment: .bottom, spacing: 0) {
-			Image(uiImage: UIImage.appleCrumbleSmall)
-				.resizable(resizingMode: .stretch)
-				.scaledToFill()
-				.frame(width: imageSize, height: imageSize, alignment: .center)
-				.border(Color.yellow, width: 3)
-				.clipped()
+			WebImage(url: recipe.thumbnailURL) { image in
+				image.resizable()
+			} placeholder: {
+				Image("AppIcon")
+			}
+			.indicator(.activity)
+			.scaledToFill()
+			.frame(width: imageSize, height: imageSize, alignment: .center)
+			.border(Color.yellow, width: 3)
+			.clipped()
 			Spacer()
 			VStack(alignment: .trailing) {
-				Text(primaryText).font(.title2)
+				Text(recipe.name).font(.title2)
 				Spacer()
-				Text(secondaryText).font(.headline)
+				Text(recipe.cuisine).font(.headline)
 				Spacer()
 				HStack {
-					Button("Youtube") {
-						print("Youtube")
+					Button(youtubeButtonTitle) {
+						if let youtubeURL = recipe.youtubeURL {
+							openURL(youtubeURL)
+						}
 					}
-					Button("Recipe") {
-						print("Recipe")
+					.disabled(recipe.youtubeURL == nil)
+					Spacer()
+					Button(recipeSourceButtonTitle) {
+						if let sourceURL = recipe.sourceURL {
+							openURL(sourceURL)
+						}
 					}
+					.disabled(recipe.sourceURL == nil)
 				}
 			}
 			.frame(height: imageSize, alignment: .center)
@@ -71,14 +90,14 @@ struct RecipeCell: View {
 }
 
 #Preview {
-	let recipe = Recipe(
+	@Previewable @State var recipe = Recipe(
 		cuisine: "English",
 		name: "Apple Crumble",
 		photoURL: nil,
 		thumbnailURL: URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/photos/535dfe4e-5d61-4db6-ba8f-7a27b1214f5d/small.jpg"),
 		id: "Identifier",
 		sourceURL: nil,
-		youtubeURL: nil
+		youtubeURL: URL(string: "http://www.youtube.com")
 	)
-	RecipeCell(recipe: recipe)
+	RecipeCell(recipe: $recipe)
 }
