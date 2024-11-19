@@ -18,7 +18,7 @@ import Foundation
  In most production code, this would get code generated from some platform agnostic
  data model, for example like with GraphQL end points.
  */
-struct Recipe: Decodable, Sendable, Equatable {
+struct Recipe: Decodable, Sendable, Equatable, Identifiable {
 	let cuisine: String
 	let name: String
 	let photoURL: URL?
