@@ -1,21 +1,31 @@
 ## FetchStaffAssessment
 
-My submission for Fetch's Staff iOS take home project https://d3jbb8n5wk0qxi.cloudfront.net/take-home-project.html 
+My submission for Fetch's Staff iOS take home project https://d3jbb8n5wk0qxi.cloudfront.net/take-home-project.html
+
+Note that the instructions specify to make a public repository. I would not leak or publish interview questions without permission.
 
 ### Steps to Run the App
 
 1. Open the project in Xcode
-2. Run the FetchStaffAssessment target
-
-// TODO: Is anything needed to set up the packages to download?
+2. Run the FetchStaffAssessment target (internet connection may be required to download the Swift package dependencies)
 
 ### Focus Areas: What specific areas of the project did you prioritize? Why did you choose to focus on these areas?
 
+What I focused on the most are also the parts of the app that I'm least confident in, particularly whether my SwiftUI code is clean and idiomatic. As that is where I have relatively the least experience since my most recent job was mostly not using it yet, I needed to spend more time figuring out how to do things with it that I would have been extremely confident in with UIKit. For other focus areas, see the Additional Information section which goes over other areas I learned about in the process of doing this.
+
 ### Time Spent: Approximately how long did you spend working on this project? How did you allocate your time?
+
+I spent about 6-7 hours writing the app itself, which was slow for me and the scope because of the time I spent adjusting to newer aspects of iOS development that I wasn't as familiar with (again, see additional information section). I spent probably about 1-2 hours on serialization, the recipe manager, tests for it, and manual testing. I spent about 2 hours getting the RecipeCell to look and work how I wanted it to. The recipe list took a bit under an hour for a version that didn't have any view model or other abstractions. Abstracting it to clean code and writing tests for the view model took about an hour. Final clean up, finishing touches, and the such took up a small portion of time as well.
+
+I did spend a few hours before even starting on the app reading documentation and watching a few WWDC videos on things like Swift Testing and some of the Swift Concurrency topics like MainActor. While I was familiar with a lot of this from the announcements, I hadn't actually used them yet so my memory was pretty hazy.
 
 ### Trade-offs and Decisions: Did you make any significant trade-offs in your approach?
 
+The biggest theme for trade offs in this project was how much to show what is actually appropriate for an app this scope vs trying to demonstrate what good practices are on more complex apps. I mostly ended on the side of making the choice most appropriate for this app while describing approaches that might be taken in other contexts. Much of my expertise is around good coding practices even at ridiculous scale of applications, so I wanted to demonstrate that. However, doing it too much in an app like this shows a lack of understanding of trade offs and whether some investment of effort to get a more robust design is actually worth anything. For example, I didn't spend the time to create a protocol for the RecipeViewModel and use that inside of the RecipeList because there isn't any UI testing anyway and I did get a chance to show that pattern with the RecipeManager.
+
 ### Weakest Part of the Project: What do you think is the weakest part of your project?
+
+The UI code is likely the weakest part of the project. It is the first SwiftUI code I've written in about a year, and I did not write much of it back then. I'm not confident about how idiomatic it is, but thankfully the UI is simple enough that it likely doesn't seem too far from the norm.
 
 ### External Code and Dependencies: Did you use any external code, libraries, or dependencies?
 
